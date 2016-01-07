@@ -1,0 +1,19 @@
+{
+  "name": "do-google-auth",
+  "version": "1.0.0",
+  "description": "Node JS authorization library for authorizing with Google's RESTful APIs",
+  "main": "doGoogleAuth.js",
+  "dependencies": {
+    "google-auth-library": "0.9.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["Google", "authorization", "googleapis"],
+  "author": "Nigel Stephen D'Souza",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nigelsdtech/do-google-auth"
+  }
+}
