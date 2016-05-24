@@ -36,7 +36,8 @@ method.authorize = function (callback) {
     var content = fs.readFileSync(this.clientSecretFile, 'utf8')
   } catch (err) {
     console.log('Error loading client secret file: ' + err);
-    return;
+    callback(err)
+    return null;
   }
 
   var credentials  = JSON.parse(content)
@@ -55,7 +56,7 @@ method.authorize = function (callback) {
       self.getNewToken(oauth2Client, callback);
     } else {
       oauth2Client.credentials = JSON.parse(token);
-      callback(oauth2Client);
+      callback(null,oauth2Client);
     }
   });
 }
@@ -86,11 +87,12 @@ method.getNewToken = function (oauth2Client, callback) {
     oauth2Client.getToken(code, function(err, token) {
       if (err) {
         console.log('Error while trying to retrieve access token', err);
-        return;
+        callback(err)
+        return null;
       }
       oauth2Client.credentials = token;
       self.storeToken(token);
-      callback(oauth2Client);
+      callback(null,oauth2Client);
     });
   });
 }
