@@ -11,7 +11,7 @@ var scopes
 
 function doGoogleAuth(scopes,tokenFile,tokenDir,clientSecretFile) {
 
-  this.scopes           = scopes
+  this.scopes           = (Array.isArray(scopes))? scopes.join(" ") : scopes
   this.tokenFile        = tokenFile
   this.tokenDir         = tokenDir
   this.clientSecretFile = clientSecretFile
