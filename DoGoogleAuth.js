@@ -111,7 +111,7 @@ method.storeToken = function (token) {
     }
   }
   var tokenPath = this.tokenDir + '/' + this.tokenFile;
-  fs.writeFile(tokenPath , JSON.stringify(token));
+  fs.writeFileSync(tokenPath , JSON.stringify(token));
   console.log('Token stored to ' + tokenPath);
 }
 
